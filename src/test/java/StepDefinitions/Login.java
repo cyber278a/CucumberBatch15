@@ -46,7 +46,7 @@ LoginPage login=new LoginPage();
 
     @When("click on login button")
     public void click_on_login_button() {
-        LoginPage login=new LoginPage();
+        //LoginPage login=new LoginPage();
        //driver.findElement(By.id("btnLogin")).click();
        // WebElement loginBtn = driver.findElement(By.id("btnLogin"));
         doClick(login.loginBtn);
@@ -55,7 +55,9 @@ LoginPage login=new LoginPage();
 
     @Then("user is logged in successfully into the application")
     public void user_is_logged_in_successfully() {
-        boolean userloggedIn = driver.findElement(By.xpath("//a[contains(text(), 'Welcome')]")).isDisplayed();
+       // boolean userloggedIn = driver.findElement(By.xpath("//a[contains(text(), 'Welcome')]")).isDisplayed();
+        // LoginPage login=new LoginPage();
+        boolean userloggedIn=login.welcomeIcon.isDisplayed();
         if (userloggedIn) {
             System.out.println("User is logged in Successfully");
         }
@@ -68,7 +70,7 @@ LoginPage login=new LoginPage();
 
     @When("user enters valid {string} and valid {string}")
     public void user_enters_valid_and_valid(String username, String password) {
-        LoginPage login=new LoginPage();
+       // LoginPage login=new LoginPage();
        // WebElement usernameTextBox = driver.findElement(By.id("txtUsername"));
         sendText(login.usernameTextBox, username);
 
@@ -78,7 +80,7 @@ LoginPage login=new LoginPage();
 
     @When("user enters username and password and verifies login")
     public void user_enters_username_and_password_and_verifies_login(DataTable dataTable) {
-        LoginPage login = new LoginPage();
+        //LoginPage login = new LoginPage();
         List<Map<String, String>> userCredentials = dataTable.asMaps();
         for (Map<String, String> userCreds : userCredentials) {
             String username = userCreds.get("username");
